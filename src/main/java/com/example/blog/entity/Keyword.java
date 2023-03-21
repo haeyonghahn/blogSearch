@@ -1,14 +1,11 @@
 package com.example.blog.entity;
 
 import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Getter
@@ -21,8 +18,17 @@ public class Keyword {
     private String keyword;
     @Column
     private long count;
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date date;
 
-    public void changeCount(int count) {
+    public Keyword(String keyword, long count, Date date) {
+        this.keyword = keyword;
         this.count = count;
+        this.date = date;
+    }
+
+    public void changeCount(long count) {
+        this.count = count + 1;
+        this.date = new Date();
     }
 }

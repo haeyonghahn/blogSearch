@@ -1,13 +1,20 @@
 package com.example.blog.dto;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.List;
 
 @Getter
-@NoArgsConstructor
+@Setter
+@Builder
+@AllArgsConstructor
 public class BlogResponseDto {
-
-    private List<BlogDocument> blogDocuments;
+    private Boolean isEnd;
+    private Integer totalElements;
+    private Integer pageSize;
+    private Integer pageNumber;
+    private List<BlogDocumentDto> blogDocumentDtos;
 }

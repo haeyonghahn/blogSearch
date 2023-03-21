@@ -1,8 +1,10 @@
 package com.example.blog.dto.kakao;
 
+import lombok.Builder;
 import lombok.Getter;
 
 @Getter
+@Builder
 public class Document {
     private String title;
     private String contents;

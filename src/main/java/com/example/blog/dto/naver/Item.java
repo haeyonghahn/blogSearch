@@ -2,8 +2,6 @@ package com.example.blog.dto.naver;
 
 import lombok.Getter;
 
-import java.util.Date;
-
 @Getter
 public class Item {
     private String title;

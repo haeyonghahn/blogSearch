@@ -7,7 +7,8 @@ import lombok.Getter;
 @Getter
 @Builder
 @AllArgsConstructor
-public class BlogDocument {
+public class BlogDocumentDto {
+
     private String title;
     private String contents;
     private String url;

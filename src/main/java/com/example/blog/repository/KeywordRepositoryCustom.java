@@ -1,10 +1,11 @@
 package com.example.blog.repository;
 
-import com.example.blog.entity.Keyword;
+import com.example.blog.dto.KeywordDto;
 
 import java.util.List;
 
 public interface KeywordRepositoryCustom {
-    List<Keyword> findKeyWordTop10();
     void save(String keyword);
+    List<KeywordDto> findKeyWordTop10();
+
 }

@@ -15,6 +15,7 @@ spring:
       driver-class-name: org.h2.Driver
       url: jdbc:h2:mem:blog
       username: sa
+      password: sa
   jpa:
     hibernate:
       ddl-auto: create
@@ -27,10 +28,9 @@ logging:
   level:
     org.hibernate.SQL: debug
     org.hibernate.type: trace
+    com.example.blog.client: DEBUG
 
 feign:
-  level:
-    com.example.blog.client: DEBUG
   client:
     config:
       default:
