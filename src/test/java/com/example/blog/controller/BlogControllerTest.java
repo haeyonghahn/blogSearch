@@ -2,7 +2,7 @@ package com.example.blog.controller;
 
 import com.example.blog.constants.Constants;
 import com.example.blog.dto.KeywordDto;
-import com.example.blog.service.BlogService;
+import com.example.blog.service.BlogServiceImpl;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +28,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 public class BlogControllerTest {
 
     @MockBean
-    BlogService blogService;
+    BlogServiceImpl blogServiceImpl;
     @Autowired
     MockMvc mockMvc;
 
@@ -64,7 +64,7 @@ public class BlogControllerTest {
 
         List<KeywordDto> list = Arrays.asList(keywordDto);
 
-        when(blogService.findKeyWordTop10()).thenReturn(list);
+        when(blogServiceImpl.findKeyWordTop10()).thenReturn(list);
 
         //when then
         mockMvc.perform(get("/blog/keyword"))

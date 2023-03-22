@@ -13,6 +13,7 @@ import java.util.Map;
 public interface KakaoFeignClient extends ExternFeignClient {
 
     @GetMapping(value = "${kakao.blogSearchUrl}", headers = {"Authorization=KakaoAK ${kakao.key}"})
+    @Override
     Map<String, Object> findBlogByKeword(
             @RequestParam @NotNull String query,
             @RequestParam(required = false, defaultValue = Constants.ACCURACY) String sort,

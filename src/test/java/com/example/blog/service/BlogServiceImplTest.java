@@ -15,7 +15,7 @@ import java.util.Map;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest
-public class BlogServiceTest {
+public class BlogServiceImplTest {
 
     @Autowired
     KakaoFeignClient kakaoFeignClient;
@@ -24,7 +24,7 @@ public class BlogServiceTest {
     KeywordRepository keywordRepository;
 
     @Autowired
-    BlogService blogService;
+    BlogServiceImpl blogServiceImpl;
 
     @DisplayName("블로그 검색 테스트")
     @Test
@@ -32,13 +32,12 @@ public class BlogServiceTest {
         //given
         Map<String, Object> kakaoDto = kakaoFeignClient.findBlogByKeword("이효리", Constants.ACCURACY, 1, 10);
         BlogResponseDto blogResponseDto = new KakaoModelMapper().map(kakaoDto);
-        blogResponseDto.setPageSize(1);
-        blogResponseDto.setPageNumber(10);
+        blogResponseDto.setPostPerPage(10);
 
         //when
-        BlogResponseDto result = blogService.findBlogByKeword("이효리", Constants.ACCURACY, 1, 10);
+        BlogResponseDto result = blogServiceImpl.findBlogByKeword("이효리", Constants.ACCURACY, 1, 10);
 
         //then
-        assertThat(result.getTotalElements()).isEqualTo(blogResponseDto.getTotalElements());
+        assertThat(result.getTotalPosts()).isEqualTo(blogResponseDto.getTotalPosts());
     }
 }

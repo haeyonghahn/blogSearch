@@ -8,9 +8,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.*;
 
 public class KakaoModelMapper implements ExternModelMapper {
-
     private ObjectMapper mapper = new ObjectMapper();
 
+    @Override
     public BlogResponseDto map(Map<String, Object> map) {
         List<BlogDocumentDto> blogDocumentDtos = new ArrayList<>();
         Map<String, Object> meta = mapper.convertValue(map.get("meta"), Map.class);
@@ -29,7 +29,7 @@ public class KakaoModelMapper implements ExternModelMapper {
             blogDocumentDtos.add(blogDocumentDto);
         }
         return BlogResponseDto.builder()
-                .totalElements((Integer) meta.get("pageable_count"))
+                .totalPosts((Integer) meta.get("pageable_count"))
                 .blogDocumentDtos(blogDocumentDtos)
                 .build();
     }

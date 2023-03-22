@@ -12,8 +12,7 @@ import java.util.List;
 @Builder
 @AllArgsConstructor
 public class BlogResponseDto {
-    private Integer totalElements;
-    private Integer pageSize;
-    private Integer pageNumber;
+    private Integer totalPosts;
+    private Integer postPerPage;
     private List<BlogDocumentDto> blogDocumentDtos;
 }

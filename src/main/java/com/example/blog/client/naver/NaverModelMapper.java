@@ -10,7 +10,6 @@ import java.util.List;
 import java.util.Map;
 
 public class NaverModelMapper implements ExternModelMapper {
-
     private ObjectMapper mapper = new ObjectMapper();
 
     @Override
@@ -32,7 +31,7 @@ public class NaverModelMapper implements ExternModelMapper {
             blogDocumentDtos.add(blogDocumentDto);
         }
         return BlogResponseDto.builder()
-                .totalElements((Integer) meta.get("total"))
+                .totalPosts((Integer) meta.get("total"))
                 .blogDocumentDtos(blogDocumentDtos)
                 .build();
     }

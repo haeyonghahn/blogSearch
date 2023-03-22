@@ -12,7 +12,6 @@ import java.util.List;
 import static com.example.blog.entity.QKeyword.keyword1;
 
 public class KeywordRepositoryImpl implements KeywordRepositoryCustom {
-
     private final EntityManager em;
     private final JPAQueryFactory queryFactory;
 
@@ -20,6 +19,7 @@ public class KeywordRepositoryImpl implements KeywordRepositoryCustom {
         this.em = em;
         this.queryFactory = new JPAQueryFactory(em);
     }
+
     @Override
     public List<KeywordDto> findKeyWordTop10() {
         return queryFactory

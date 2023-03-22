@@ -3,7 +3,7 @@ package com.example.blog.controller;
 import com.example.blog.dto.BlogRequestDto;
 import com.example.blog.dto.BlogResponseDto;
 import com.example.blog.dto.KeywordDto;
-import com.example.blog.service.BlogService;
+import com.example.blog.service.BlogServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,13 +16,13 @@ import java.util.List;
 @RequestMapping("/blog")
 @RequiredArgsConstructor
 public class BlogController {
-    private final BlogService blogService;
+    private final BlogServiceImpl blogServiceImpl;
 
     @GetMapping(value = "/search")
     public BlogResponseDto search(@Valid BlogRequestDto blogRequestDto) {
 
-        blogService.keywordSave(blogRequestDto.getQuery());
-        return blogService.findBlogByKeword(
+        blogServiceImpl.keywordSave(blogRequestDto.getQuery());
+        return blogServiceImpl.findBlogByKeword(
                 blogRequestDto.getQuery(),
                 blogRequestDto.getSort(),
                 blogRequestDto.getPage(),
@@ -31,6 +31,6 @@ public class BlogController {
 
     @GetMapping("/keyword")
     public List<KeywordDto> keyword() {
-        return blogService.findKeyWordTop10();
+        return blogServiceImpl.findKeyWordTop10();
     }
 }

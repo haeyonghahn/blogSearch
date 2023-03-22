@@ -8,7 +8,6 @@ import lombok.Getter;
 @Builder
 @AllArgsConstructor
 public class BlogDocumentDto {
-
     private String title;
     private String contents;
     private String url;

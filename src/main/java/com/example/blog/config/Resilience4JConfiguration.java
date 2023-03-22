@@ -16,14 +16,14 @@ public class Resilience4JConfiguration {
     @Bean
     public Customizer<Resilience4JCircuitBreakerFactory> globalCustomConfiguration() {
         CircuitBreakerConfig circuitBreakerConfig = CircuitBreakerConfig.custom()
-                .failureRateThreshold(4)                                                    //CircuitBreaker를 열지 결정하는 failure rate threshold 퍼센트
-                .waitDurationInOpenState(Duration.ofMillis(1000))                           //CircuitBreaker를 open한 상태를 유지하는 지속 기간을 의미. 이 기간 이후에 half-open 상태 (기본값 : 60초)
-                .slidingWindowType(CircuitBreakerConfig.SlidingWindowType.COUNT_BASED)      //CircuitBreaker가 닫힐 때 통화 결과를 기록하는 데 사용되는 슬라이딩 창의 유형을 구성. 카운트 기반 또는 시간 기반
-                .slidingWindowSize(2)                                                       //CircuitBreaker가 닫힐 때 호출 결과를 기록하는 데 사용되는 슬라이딩 창의 크기를 구성 (기본값 : 100)
+                .failureRateThreshold(4)
+                .waitDurationInOpenState(Duration.ofMillis(1000))
+                .slidingWindowType(CircuitBreakerConfig.SlidingWindowType.COUNT_BASED)
+                .slidingWindowSize(2)
                 .build();
 
         TimeLimiterConfig timeLimiterConfig = TimeLimiterConfig.custom()
-                .timeoutDuration(Duration.ofSeconds(4))                                     //future supplier의 time limit을 정하는 API (기본값 : 1초)
+                .timeoutDuration(Duration.ofSeconds(4))
                 .build();
 
         return factory -> factory.configureDefault(id -> new Resilience4JConfigBuilder(id)

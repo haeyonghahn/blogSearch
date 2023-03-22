@@ -14,6 +14,7 @@ public interface NaverFeignClient extends ExternFeignClient {
     @GetMapping(value = "${naver.blogSearchUrl}",
             headers = {"X-Naver-Client-Id=${naver.clientId}",
                     "X-Naver-Client-Secret=${naver.clientSecret}"})
+    @Override
     Map<String, Object> findBlogByKeword(
             @RequestParam @NotNull String query,
             @RequestParam(required = false, defaultValue = "sim") String sort,

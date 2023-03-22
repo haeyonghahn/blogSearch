@@ -11,7 +11,6 @@ import java.util.Date;
 public class KeywordDto {
     private String keyword;
     private long count;
-
     private Date date;
 
     @QueryProjection

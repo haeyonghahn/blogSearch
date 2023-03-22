@@ -45,9 +45,9 @@ public class ErrorResponse {
         this.errors = errors.stream().map(CustomFieldError::new).collect(Collectors.toList());
     }
 
-    private ErrorResponse(ErrorCode errorCode, String exceptionMessage) {
+    private ErrorResponse(ErrorCode errorCode, String message) {
         setErrorCode(errorCode);
-        this.errors = List.of(new CustomFieldError("", "", exceptionMessage));
+        this.errors = List.of(new CustomFieldError("", "", message));
     }
 
     public static ErrorResponse of(ErrorCode errorCode) {
