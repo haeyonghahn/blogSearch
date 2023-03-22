@@ -3,6 +3,7 @@
   * **[블로그 검색](#블로그-검색)**
   * **[인기 검색어 목록](#인기-검색어-목록)**
 * **[외부 라이브러리 및 오픈소스 사용](#외부-라이브러리-및-오픈소스-사용)**
+* **[다운로드 링크](#다운로드-링크)**
 # API 명세서
 ## 블로그 검색
 ```
@@ -171,4 +172,4 @@ In-Memory DB 사용
 - jacoco   
 테스트 커버리지 측정을 위한 용도
 
-https://github.com/haeyonghahn/blogSearch/blob/master/executable/blogSearch-1.0-SNAPSHOT.jar
+[다운로드 링크](https://github.com/haeyonghahn/blogSearch/blob/master/executable/blogSearch-1.0-SNAPSHOT.jar)
