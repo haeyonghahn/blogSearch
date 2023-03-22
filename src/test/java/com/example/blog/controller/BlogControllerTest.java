@@ -1,15 +1,12 @@
 package com.example.blog.controller;
 
 import com.example.blog.constants.Constants;
-import com.example.blog.controller.BlogController;
-import com.example.blog.dto.BlogRequestDto;
 import com.example.blog.dto.KeywordDto;
 import com.example.blog.service.BlogService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;

@@ -12,7 +12,6 @@ import java.util.List;
 @Builder
 @AllArgsConstructor
 public class BlogResponseDto {
-    private Boolean isEnd;
     private Integer totalElements;
     private Integer pageSize;
     private Integer pageNumber;

@@ -2,7 +2,6 @@ package com.example.blog.repository;
 
 import com.example.blog.dto.KeywordDto;
 import com.example.blog.entity.Keyword;
-import com.querydsl.jpa.impl.JPAQueryFactory;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

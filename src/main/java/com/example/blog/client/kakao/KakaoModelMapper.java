@@ -1,30 +1,35 @@
 package com.example.blog.client.kakao;
 
+import com.example.blog.client.ExternModelMapper;
 import com.example.blog.dto.BlogDocumentDto;
 import com.example.blog.dto.BlogResponseDto;
-import com.example.blog.dto.kakao.Document;
-import com.example.blog.dto.kakao.KakaoDto;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
-public class KakaoModelMapper {
+public class KakaoModelMapper implements ExternModelMapper {
 
-    public BlogResponseDto map(KakaoDto kakaoDto) {
+    private ObjectMapper mapper = new ObjectMapper();
+
+    public BlogResponseDto map(Map<String, Object> map) {
         List<BlogDocumentDto> blogDocumentDtos = new ArrayList<>();
+        Map<String, Object> meta = mapper.convertValue(map.get("meta"), Map.class);
+        List<Map<String, Object>> documents = mapper.convertValue(map.get("documents"), List.class);
 
-        for(Document document : kakaoDto.getDocuments()) {
+        for(int i = 0; i < documents.size(); i++) {
             BlogDocumentDto blogDocumentDto = BlogDocumentDto.builder()
-                    .title(document.getTitle())
-                    .contents(document.getContents())
-                    .url(document.getUrl())
-                    .blogname(document.getBlogname())
-                    .datetime(document.getDatetime())
+                    .title((String) documents.get(i).get("title"))
+                    .contents((String) documents.get(i).get("contents"))
+                    .url((String) documents.get(i).get("url"))
+                    .blogname((String) documents.get(i).get("blogname"))
+                    .thumbnail((String) documents.get(i).get("thumbnail"))
+                    .datetime((String) documents.get(i).get("datetime"))
                     .build();
 
             blogDocumentDtos.add(blogDocumentDto);
         }
         return BlogResponseDto.builder()
+                .totalElements((Integer) meta.get("pageable_count"))
                 .blogDocumentDtos(blogDocumentDtos)
                 .build();
     }
