@@ -170,3 +170,5 @@ In-Memory DB 사용
 스프링 부트 테스트를 위한 용도
 - jacoco   
 테스트 커버리지 측정을 위한 용도
+
+https://github.com/haeyonghahn/blogSearch/blob/master/executable/blogSearch-1.0-SNAPSHOT.jar
