@@ -3,6 +3,7 @@
   * **[블로그 검색](#블로그-검색)**
   * **[인기 검색어 목록](#인기-검색어-목록)**
 * **[외부 라이브러리 및 오픈소스 사용](#외부-라이브러리-및-오픈소스-사용)**
+* **[Executable jar 다운로드](#executable-jar-다운로드)**
 # API 명세서
 ## 블로그 검색
 ```
@@ -170,3 +171,6 @@ In-Memory DB 사용
 스프링 부트 테스트를 위한 용도
 - jacoco   
 테스트 커버리지 측정을 위한 용도
+
+# Executable jar 다운로드
+[다운로드 링크](https://github.com/haeyonghahn/blogSearch/blob/master/executable/blogSearch-1.0-SNAPSHOT.jar)
