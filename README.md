@@ -173,4 +173,4 @@ In-Memory DB 사용
 테스트 커버리지 측정을 위한 용도
 
 # Executable jar 다운로드
-[다운로드 링크](https://raw.githubusercontent.com/haeyonghahn/blogSearch/blob/master/executable/blogSearch-1.0-SNAPSHOT.jar)
+[다운로드 링크](https://github.com/haeyonghahn/blogSearch/blob/master/executable/blogSearch-1.0-SNAPSHOT.jar?raw=true)
